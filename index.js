@@ -1,5 +1,3 @@
-console.log("Hello World")
-
 
 function addMovie(event) {
     event.preventDefault()
