@@ -16,7 +16,7 @@ function addMovie(event) {
     deleteBtn.addEventListener('click', deleteMovie)
     movie.appendChild(deleteBtn)
     document.querySelector('ul').appendChild(movie)
-
+    inputField.value = ''
 }
 
 document.querySelector('form').addEventListener('submit', addMovie)
@@ -25,12 +25,15 @@ document.querySelector('form').addEventListener('submit', addMovie)
 function deleteMovie(event) {
     event.preventDefault()
     event.target.parentNode.remove()
-    message.textContent = "Movie deleted!"
+    const title = event.target.parentNode.firstChild.textContent 
+    // li is the parent, span is the first child
+    message.textContent =  `${title} deleted!`
     revealMessage()
 }
 
 
 function crossOffMovie(event) {
+    event.preventDefault()
     event.target.classList.toggle('checked')
     const title = event.target.textContent
     if (event.target.classList.contains('checked')) {
